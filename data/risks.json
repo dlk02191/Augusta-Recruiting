@@ -1,0 +1,342 @@
+[
+  {
+    "id": "R-001",
+    "title": "Candidate Data Exposure",
+    "category": "Security & privacy",
+    "owner": "Head of Information Security",
+    "inherent": {
+      "likelihood": 4,
+      "impact": 5
+    },
+    "residual": {
+      "likelihood": 2,
+      "impact": 4
+    },
+    "description": "Because candidate records may be over-retained and recruiter accounts broadly privileged, a compromised account could expose resumes and identity documents, causing privacy harm, notification costs, and loss of candidate trust.",
+    "causes": [
+      "Broad ATS export permissions and inconsistent access reviews",
+      "Sensitive attachments retained beyond business need",
+      "Phishing and weak session protection"
+    ],
+    "consequences": [
+      "Candidate identity misuse and loss of confidentiality",
+      "Privacy notification and regulatory investigation costs",
+      "Recruiting disruption and reputational damage"
+    ],
+    "controls": [
+      "Assumed: ATS role-based permissions and encrypted transport",
+      "Assumed: employee security induction and documented privacy policy"
+    ],
+    "residualBasis": "Target only: lower exposure depends on validated least privilege, stronger authentication, retention enforcement, and response exercises; impact remains major because sensitive records remain in scope.",
+    "actions": [
+      {
+        "action": "Enforce phishing-resistant MFA and restrict bulk exports",
+        "owner": "IT Operations Lead",
+        "due": "2026-11-15",
+        "status": "In progress"
+      },
+      {
+        "action": "Approve retention schedule and test deletion of expired attachments",
+        "owner": "Privacy Officer",
+        "due": "2026-12-01",
+        "status": "Planned"
+      },
+      {
+        "action": "Run candidate-data incident tabletop and sample access review",
+        "owner": "Head of Information Security",
+        "due": "2026-12-15",
+        "status": "Planned"
+      }
+    ],
+    "status": "In treatment",
+    "nextReview": "2026-11-20",
+    "residualType": "proposed",
+    "strategy": "mitigate",
+    "identified": "2026-10-01",
+    "assessed": "2026-10-25",
+    "history": [
+      {
+        "date": "2026-10-01",
+        "author": "Head of Information Security",
+        "change": "Fictional initial risk statement recorded for portfolio demonstration."
+      },
+      {
+        "date": "2026-10-25",
+        "author": "Head of Information Security",
+        "change": "Illustrative inherent assessment and proposed post-treatment target added. Controls and treatment effectiveness are unverified."
+      }
+    ]
+  },
+  {
+    "id": "R-002",
+    "title": "Consultant Access Not Revoked",
+    "category": "Consultant lifecycle",
+    "owner": "Director of Consulting Operations",
+    "inherent": {
+      "likelihood": 4,
+      "impact": 4
+    },
+    "residual": {
+      "likelihood": 2,
+      "impact": 3
+    },
+    "description": "Because assignment end dates and client offboarding responsibilities may be inconsistent, a former consultant could retain client-system access after departure, enabling unauthorized changes or disclosure and damaging client relationships.",
+    "causes": [
+      "Assignment changes not synchronized with identity records",
+      "Unclear division of revocation duties with client teams",
+      "Unmanaged shared accounts or long-lived credentials"
+    ],
+    "consequences": [
+      "Unauthorized access to client information",
+      "Contractual penalties and loss of client confidence",
+      "Delayed investigation when account ownership is unclear"
+    ],
+    "controls": [
+      "Assumed: manager departure checklist",
+      "Assumed: client sponsors approve initial consultant access"
+    ],
+    "residualBasis": "Target only: conditional on client-confirmed revocation, time-limited access and sampled evidence. Reduced impact assumes effective client scoping; client-owned controls have not been verified.",
+    "actions": [
+      {
+        "action": "Establish a client responsibility matrix and revocation SLA",
+        "owner": "Director of Consulting Operations",
+        "due": "2026-11-10",
+        "status": "In progress"
+      },
+      {
+        "action": "Reconcile active assignments against client access attestations",
+        "owner": "Identity and Access Lead",
+        "due": "2026-11-25",
+        "status": "Planned"
+      },
+      {
+        "action": "Test end-date alerts and require revocation evidence",
+        "owner": "Consultant Engagement Manager",
+        "due": "2026-12-05",
+        "status": "Planned"
+      }
+    ],
+    "status": "In treatment",
+    "nextReview": "2026-11-15",
+    "residualType": "proposed",
+    "strategy": "mitigate",
+    "identified": "2026-10-01",
+    "assessed": "2026-10-25",
+    "history": [
+      {
+        "date": "2026-10-01",
+        "author": "Director of Consulting Operations",
+        "change": "Fictional initial risk statement recorded for portfolio demonstration."
+      },
+      {
+        "date": "2026-10-25",
+        "author": "Director of Consulting Operations",
+        "change": "Illustrative inherent assessment and proposed post-treatment target added. Controls and treatment effectiveness are unverified."
+      }
+    ]
+  },
+  {
+    "id": "R-003",
+    "title": "Recruiter Impersonation and Payment Fraud",
+    "category": "Fraud",
+    "owner": "Finance Director",
+    "inherent": {
+      "likelihood": 4,
+      "impact": 4
+    },
+    "residual": {
+      "likelihood": 2,
+      "impact": 3
+    },
+    "description": "Because recruiter identities and payment instructions may be insufficiently authenticated, an impersonator could redirect consultant payments or solicit candidate fees, creating financial loss and reputational harm.",
+    "causes": [
+      "Spoofed email domains and social profiles",
+      "Bank-detail changes accepted through email alone",
+      "Limited awareness of fee scams among candidates"
+    ],
+    "consequences": [
+      "Misdirected payroll or supplier payments",
+      "Candidate financial harm and reputational damage",
+      "Recovery effort and dispute costs"
+    ],
+    "controls": [
+      "Assumed: dual approval for payment runs",
+      "Assumed: public notice that candidates are never charged placement fees"
+    ],
+    "residualBasis": "Target only: callback verification and payment limits must be tested before relying on reduced likelihood or loss magnitude. Email authentication alone cannot prevent lookalike-domain scams.",
+    "actions": [
+      {
+        "action": "Require verified callback for bank-detail changes",
+        "owner": "Finance Operations Manager",
+        "due": "2026-11-05",
+        "status": "In progress"
+      },
+      {
+        "action": "Deploy and monitor SPF, DKIM and enforced DMARC",
+        "owner": "Messaging Administrator",
+        "due": "2026-11-30",
+        "status": "Planned"
+      },
+      {
+        "action": "Publish verified recruiter contact guidance and scam reporting channel",
+        "owner": "Recruiting Director",
+        "due": "2026-11-12",
+        "status": "Planned"
+      }
+    ],
+    "status": "In treatment",
+    "nextReview": "2026-11-10",
+    "residualType": "proposed",
+    "strategy": "mitigate",
+    "identified": "2026-10-01",
+    "assessed": "2026-10-25",
+    "history": [
+      {
+        "date": "2026-10-01",
+        "author": "Finance Director",
+        "change": "Fictional initial risk statement recorded for portfolio demonstration."
+      },
+      {
+        "date": "2026-10-25",
+        "author": "Finance Director",
+        "change": "Illustrative inherent assessment and proposed post-treatment target added. Controls and treatment effectiveness are unverified."
+      }
+    ]
+  },
+  {
+    "id": "R-004",
+    "title": "ATS/CRM Service Disruption",
+    "category": "Operational resilience",
+    "owner": "IT Operations Lead",
+    "inherent": {
+      "likelihood": 3,
+      "impact": 4
+    },
+    "residual": {
+      "likelihood": 2,
+      "impact": 3
+    },
+    "description": "Because recruiting depends on a hosted ATS/CRM and recovery processes may be untested, a supplier outage or integration failure could interrupt candidate matching and client delivery, resulting in missed placements and revenue loss.",
+    "causes": [
+      "Concentration in one SaaS provider",
+      "Unvalidated exports and recovery assumptions",
+      "Integration changes without documented rollback"
+    ],
+    "consequences": [
+      "Missed interviews and placement deadlines",
+      "Lost revenue and client service breaches",
+      "Manual-workaround errors and duplicated candidate records"
+    ],
+    "controls": [
+      "Assumed: supplier status notifications and support agreement",
+      "Assumed: restricted access to periodic business-data exports"
+    ],
+    "residualBasis": "Target only: assumes restoration and a privacy-preserving manual workflow meet calibrated recovery objectives in an exercise. Supplier availability remains outside direct control.",
+    "actions": [
+      {
+        "action": "Define recovery time and recovery point objectives with business owners",
+        "owner": "Business Continuity Lead",
+        "due": "2026-11-20",
+        "status": "Planned"
+      },
+      {
+        "action": "Exercise export recovery and secure temporary candidate scheduling",
+        "owner": "IT Operations Lead",
+        "due": "2026-12-10",
+        "status": "Planned"
+      },
+      {
+        "action": "Review supplier resilience evidence and escalation contacts",
+        "owner": "Vendor Manager",
+        "due": "2026-11-30",
+        "status": "Planned"
+      }
+    ],
+    "status": "Identified",
+    "nextReview": "2026-11-25",
+    "residualType": "proposed",
+    "strategy": "mitigate",
+    "identified": "2026-10-01",
+    "assessed": "2026-10-25",
+    "history": [
+      {
+        "date": "2026-10-01",
+        "author": "IT Operations Lead",
+        "change": "Fictional initial risk statement recorded for portfolio demonstration."
+      },
+      {
+        "date": "2026-10-25",
+        "author": "IT Operations Lead",
+        "change": "Illustrative inherent assessment and proposed post-treatment target added. Controls and treatment effectiveness are unverified."
+      }
+    ]
+  },
+  {
+    "id": "R-005",
+    "title": "Screening Bias and Hiring Compliance",
+    "category": "Compliance & fairness",
+    "owner": "Head of People and Compliance",
+    "inherent": {
+      "likelihood": 3,
+      "impact": 4
+    },
+    "residual": {
+      "likelihood": 2,
+      "impact": 4
+    },
+    "description": "Because screening criteria and automated recommendations may lack consistent fairness review, qualified candidates could be excluded unfairly or without required notices, resulting in discrimination complaints, regulatory exposure, and loss of client trust.",
+    "causes": [
+      "Inconsistent job-related evaluation criteria",
+      "Unreviewed vendor screening models and accessibility barriers",
+      "Insufficient jurisdiction-specific notice and appeal procedures"
+    ],
+    "consequences": [
+      "Unfair exclusion of qualified candidates",
+      "Employment-law complaints and remediation expense",
+      "Loss of trust and reduced diversity of candidate pools"
+    ],
+    "controls": [
+      "Assumed: human review of shortlisted applicants",
+      "Assumed: equal-opportunity policy and basic recruiter training"
+    ],
+    "residualBasis": "Target only: subject to documented job-related criteria, counsel review, accessible appeals, and legally appropriate outcome testing. Major impact remains plausible; a human reviewer alone does not establish fairness.",
+    "actions": [
+      {
+        "action": "Approve structured, job-related screening criteria and review exceptions",
+        "owner": "Recruiting Director",
+        "due": "2026-11-20",
+        "status": "Planned"
+      },
+      {
+        "action": "Review notices, accommodations and appeal process with qualified counsel",
+        "owner": "Compliance Counsel",
+        "due": "2026-12-01",
+        "status": "Planned"
+      },
+      {
+        "action": "Assess vendor evidence and design lawful fairness monitoring",
+        "owner": "Head of People and Compliance",
+        "due": "2026-12-15",
+        "status": "Planned"
+      }
+    ],
+    "status": "Identified",
+    "nextReview": "2026-11-30",
+    "residualType": "proposed",
+    "strategy": "mitigate",
+    "identified": "2026-10-01",
+    "assessed": "2026-10-25",
+    "history": [
+      {
+        "date": "2026-10-01",
+        "author": "Head of People and Compliance",
+        "change": "Fictional initial risk statement recorded for portfolio demonstration."
+      },
+      {
+        "date": "2026-10-25",
+        "author": "Head of People and Compliance",
+        "change": "Illustrative inherent assessment and proposed post-treatment target added. Controls and treatment effectiveness are unverified."
+      }
+    ]
+  }
+]

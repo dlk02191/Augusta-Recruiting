@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A fictional recruiting-company risk register demonstrating GRC engineering, transparent scoring and treatment planning.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Risk overview · Augusta Recruiting</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script type="module" src="assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="./"><span class="monogram" aria-hidden="true">A<span>.</span></span><span>Augusta <span class="brand-sub">RECRUITING</span></span></a>
+    <nav aria-label="Main navigation"><a href="#overview">Overview</a><a href="#register">Risk register</a><a href="#methodology">Methodology</a></nav>
+    <span class="portfolio-tag">GRC ENGINEERING / PORTFOLIO</span>
+  </header>
+  <main id="main">
+    <div class="disclaimer"><span class="notice-dot" aria-hidden="true"></span><strong>Fictional portfolio demonstration.</strong> Organization, risks, assessments and controls are illustrative and unverified. No real personal or client data.</div>
+    <section id="overview" aria-labelledby="page-title">
+      <div class="page-heading"><div><p class="eyebrow">GOVERNANCE, RISK & COMPLIANCE</p><h1 id="page-title">Risk overview<span class="title-dot">.</span></h1><p class="intro">A clear view of exposure. A deliberate path to resilience.</p></div><button id="export" class="button" disabled><span aria-hidden="true">↓</span> Export register <span class="button-note">CSV</span></button></div>
+      <div id="load-state" role="status" class="load-state">Loading risk records…</div>
+      <div id="metrics" class="metrics" aria-label="Portfolio summary"></div>
+      <div class="section-note">Summary uses inherent risk across the full register. Review dates are evaluated against today in UTC. Proposed residual scores are targets, not measured results.</div>
+    </section>
+    <section class="analysis-grid" aria-label="Risk analysis">
+      <div class="panel matrix-panel">
+        <div class="section-heading"><div><p class="eyebrow">EXPOSURE AT A GLANCE</p><h2>Risk landscape</h2></div><fieldset class="segmented"><legend class="sr-only">Heat map assessment</legend><label><input type="radio" name="assessment" value="inherent" checked> <span>Inherent</span></label><label><input type="radio" name="assessment" value="residual"> <span>Proposed residual</span></label></fieldset></div>
+        <p id="matrix-note" class="muted">Select a risk ID to explore its assessment. Multiple risks can share a cell.</p>
+        <div class="matrix-shell"><span class="axis-y">IMPACT ↑</span><div id="matrix" class="matrix" aria-label="5 by 5 risk matrix"></div><div class="axis-x">LIKELIHOOD →</div></div>
+        <div class="legend" aria-label="Severity legend"><span><i class="low"></i>Low 1–4</span><span><i class="moderate"></i>Moderate 5–9</span><span><i class="high"></i>High 10–16</span><span><i class="critical"></i>Critical 17–25</span></div>
+        <details class="matrix-alternative"><summary>Read the matrix as a list</summary><ul id="matrix-list"></ul></details>
+      </div>
+      <aside class="panel priorities" aria-labelledby="priorities-title"><p class="eyebrow">FROM INSIGHT TO ACTION</p><h2 id="priorities-title">Treatment priorities</h2><p class="muted">Highest inherent exposure, with accountable next steps.</p><div id="priorities"></div><div class="target-note"><span class="small-label">A NOTE ON RESIDUAL RISK</span><p>Targets describe the intended outcome of planned treatments. Validate control effectiveness before accepting a lower exposure.</p></div></aside>
+    </section>
+    <section id="register" class="panel register-panel" aria-labelledby="register-title">
+      <div class="section-heading"><div><p class="eyebrow">THE WORKING REGISTER</p><h2 id="register-title">Risks & ownership</h2></div><span id="result-count" role="status" class="muted"></span></div>
+      <form id="filters" class="filters" role="search" aria-label="Filter risk register">
+        <label class="search-label">Search register<input id="search" type="search" placeholder="Search risks, owners, keywords…"></label>
+        <label>Category<select id="category" aria-label="Category"><option value="">All categories</option></select></label>
+        <label>Inherent severity<select id="severity" aria-label="Inherent severity"><option value="">All severities</option><option>Critical</option><option>High</option><option>Moderate</option><option>Low</option></select></label>
+        <label>Workflow status<select id="status" aria-label="Workflow status"><option value="">All statuses</option></select></label>
+        <button class="text-button" type="reset">Reset</button>
+      </form>
+      <p id="table-help" class="table-help">Select a column heading to sort or a risk title for details. Residual scores are proposed targets. Export includes the full register.</p>
+      <div class="table-scroll" role="region" aria-label="Risk register table" tabindex="0">
+        <table aria-describedby="table-help"><thead><tr>
+          <th scope="col" aria-sort="ascending"><button data-sort="id">ID <span aria-hidden="true">↕</span></button></th>
+          <th scope="col"><button data-sort="title">Risk <span aria-hidden="true">↕</span></button></th>
+          <th scope="col"><button data-sort="category">Category <span aria-hidden="true">↕</span></button></th>
+          <th scope="col"><button data-sort="owner">Owner <span aria-hidden="true">↕</span></button></th>
+          <th scope="col"><button data-sort="inherent">Inherent <span aria-hidden="true">↕</span></button></th>
+          <th scope="col"><button data-sort="residual">Residual target <span aria-hidden="true">↕</span></button></th>
+          <th scope="col"><button data-sort="severity">Severity <span aria-hidden="true">↕</span></button></th>
+          <th scope="col"><button data-sort="status">Status <span aria-hidden="true">↕</span></button></th>
+          <th scope="col"><button data-sort="nextReview">Next review <span aria-hidden="true">↕</span></button></th>
+        </tr></thead><tbody id="risk-rows"></tbody></table>
+      </div><p id="empty-state" hidden>No risks match these filters. Try another search or reset the filters.</p>
+    </section>
+    <section id="methodology" class="methodology" aria-labelledby="method-title"><div><p class="eyebrow">CONSISTENT BY DESIGN</p><h2 id="method-title">A transparent scoring model</h2><p>Likelihood × impact = risk score. Inherent risk assumes no controls; proposed residual risk assumes planned treatments succeed. These qualitative judgments require organizational calibration.</p><a href="docs/methodology.md">Read the assessment methodology ↗</a></div><div><h3>Likelihood</h3><ol id="likelihood-definitions"></ol></div><div><h3>Impact</h3><ol id="impact-definitions"></ol></div></section>
+    <noscript><p class="disclaimer">JavaScript is required for the interactive register. Read the fictional records in <a href="data/risks.json">risks.json</a> and the <a href="docs/methodology.md">methodology</a>.</p></noscript>
+  </main>
+  <footer><span>Augusta Recruiting <span aria-hidden="true">/</span> Risk & assurance</span><span>Fictional by design. Transparent by principle.</span><a href="https://github.com/dlk02191/Augusta-Recruiting">Source & documentation ↗</a></footer>
+  <dialog id="risk-dialog" aria-labelledby="detail-title"><div class="dialog-bar"><span class="eyebrow">RISK ASSESSMENT / FICTIONAL</span><button id="close-dialog" class="close-button" aria-label="Close risk details" autofocus>✕</button></div><div id="risk-detail"></div></dialog>
+</body>
+</html>
